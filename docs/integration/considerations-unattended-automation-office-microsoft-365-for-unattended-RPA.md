@@ -50,26 +50,26 @@ Office applications are non-reentrant, STA-based applications that are designed 
 
 ### Resiliency and stability
 
-Even with the considerations above, if the applications are automated in ways that simulate user input or for session lengths that dramatically exceed interactive usage, they might encounter issues that are not present when run interactively. Solutions that utilize Office in this context should proactively build mechanisms to monitor the state of the application and restart them (and/or the virtual machine on which they are running) if/as needed.
+Even with the considerations listed, if the applications are automated in ways that simulate user input or for session lengths that dramatically exceed interactive usage, they might encounter issues that are not present when run interactively. Solutions that utilize Office in this context should proactively build mechanisms to monitor the state of the application and restart them (and/or the virtual machine on which they are running) as needed.
 
-## Suggested Alternatives
+## Suggested alternatives
 
-Microsoft strongly recommends a few alternatives that do not require Office to be installed and run server-side, and that can perform common tasks more efficiently and more quickly than automation in this configuration. Before you involve Office as a server-side component in your project, consider alternatives.
+We strongly recommend a few alternatives that do not require Office to be installed and run server-side, and that can perform common tasks more efficiently and more quickly than automation in this configuration. Before you involve Office as a server-side component in your project, consider alternatives.
 
 ### Microsoft Graph
 
-The Microsoft Graph API provides access to the services, data, and intelligence that are available to users and solutions as part of the Microsoft cloud, including many services supporting the needs of unattended automation: access to users’ mail / calendar / contacts / files, document conversion, Excel workbook calculation, and more. These services are designed for unattended use and high-scale access, and utilize a standard RESTful API syntax. For more information on Microsoft Graph and how to use it to work with users’ data, visit the following:
+The Microsoft Graph API provides access to the services, data, and intelligence that are available to users and solutions as part of the Microsoft cloud, including many services that support the needs of unattended automation: access to users’ mail, calendar, contacts, and files, document conversion, Excel workbook calculation, and more. These services are designed for unattended use and high-scale access, and utilize a standard RESTful API syntax. For more information about Microsoft Graph and how to use it to work with users’ data, see the following:
 
 - [Overview of Microsoft Graph](https://docs.microsoft.com/graph/overview) 
 - [Get started with Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 - [Download a file in another format](https://docs.microsoft.com/graph/api/driveitem-get-content-format?view=graph-rest-1.0&tabs=http) (file conversion)
-- [Working with Excel in Microsoft Graph](https://docs.microsoft.com/graph/api/resources/excel?view=graph-rest-1.0) (workbook details)
+- [Working with Excel in Microsoft Graph](https://docs.microsoft.com/graph/api/resources/excel?view=graph-rest-1.0)
 
 ### Open XML file formats
 
-Many automation tasks involve document creation or editing. Office supports Open XML file formats that let developers create, edit, read, and transform file content using standard XML and ZIP technologies, defined in the ISO 29500 International Standard. These file formats can be manipulated via any ZIP/XML tools, including the System.IO.Package.IO namespace in the Microsoft .NET 3.x Framework. Direct editing of the file formats is the recommended and supported method for handling changes to Office files from a service.
+Many automation tasks involve document creation or editing. Office supports Open XML file formats that you can use to create, edit, read, and transform file content using standard XML and ZIP technologies, defined in the ISO 29500 International Standard. These file formats can be manipulated via any ZIP/XML tools, including the System.IO.Package.IO namespace in the Microsoft .NET 3.x Framework. Direct editing of the file formats is the recommended and supported method for handling changes to Office files from a service.
 
-Microsoft provides an SDK for manipulating Open XML file formats from the .NET 3.x Framework. For more information about the SDK and how to use the SDK to create or edit Open XML files, visit the following:
+Microsoft provides an SDK for manipulating Open XML file formats from the .NET 3.x Framework. For more information about the SDK and how to use it to create or edit Open XML files, see the following:
 
 - [Understanding the Open XML file formats](https://docs.microsoft.com/office/open-xml/understanding-the-open-xml-file-formats)
 - [Welcome to the Open XML SDK 2.5 for Office](https://docs.microsoft.com/office/open-xml/open-xml-sdk)
